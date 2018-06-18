@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+ROOT="$(cd "${DIR}"/../ && pwd)"
+
+. "${ROOT}"/docker/lib/docker_host_user_id.sh
+. "${ROOT}"/docker/lib/env.sh
+. "${ROOT}"/docker/lib/images.sh
+. "${DIR}"/lib/tty.sh
+
+. "${ROOT}"/docker/bin/init/network.sh
+
+docker run \
+    -e LOCAL_USER_ID=$DOCKER_HOST_USER_ID \
+    -i${TTY} --rm \
+    -v $(pwd):/var/www \
+    -v ~/.composer:/home/user/.composer \
+    -v ~/.ssh:/home/user/.ssh \
+    -w /var/www \
+    --net ${PROJECT_NAME}_default ${ENV} \
+    --link api:api.starfish.local \
+    ${PHPSTAN_IMAGE} phpstan "$@"
