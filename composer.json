@@ -1,5 +1,5 @@
 {
-    "name": "phpexperts/docker-rector",
+    "name": "phpexperts/docker-phpstan",
     "description": "The quickest and easiest way to run phpstan/phpstan with any PHP app.",
     "keywords": [
         "phpstan",
