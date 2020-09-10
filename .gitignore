@@ -1,0 +1,8 @@
+.env
+composer.lock
+/.php_cs.cache
+/.phpunit*
+/coverage
+/node_modules
+/vendor
+/.idea
