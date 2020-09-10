@@ -6,6 +6,5 @@ else
     TAG="$1"
 fi
 
-docker build . --tag="phpexperts/phpstan:${TAG}"
-docker build . --tag="phpexperts/phpstan:latest"
-
+docker build docker/phpstan --tag="phpexperts/phpstan:${TAG}"  --build-arg PHP_VERSION=7.4
+docker build docker/phpstan --tag="phpexperts/phpstan:latest"  --build-arg PHP_VERSION=7.4
