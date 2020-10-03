@@ -11,7 +11,16 @@ It is based off of [**phpexperts/dockerize**](https://github.com/phpexpertsinc/d
 
 # Installation
 
+## Per Project:
+
     composer require --dev phpexperts/docker-phpstan
+    
+## System-wide:
+
+    wget https://raw.githubusercontent.com/PHPExpertsInc/docker-phpstan/master/bin/phpstan
+    chmod 0755 phpstan
+    sudo chown root:root phpstan
+    sudo mv phpstan /usr/local/bin
 
 ### Installation Video
 
